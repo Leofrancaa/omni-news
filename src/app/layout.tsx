@@ -1,5 +1,6 @@
 import { Orbitron, Inter } from "next/font/google";
 import "./globals.css";
+import ParticlesBackground from "../components/particlesBackground";
 
 // Configuração da Orbitron
 const orbitron = Orbitron({
@@ -21,7 +22,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${orbitron.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        <ParticlesBackground></ParticlesBackground>
+        {children}
+      </body>
     </html>
   );
 }

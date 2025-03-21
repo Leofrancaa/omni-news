@@ -24,7 +24,9 @@ body {
 
 /* Caso queira aplicar Orbitron em títulos ou outras seções */
 h1,
-.orbitron-text {
+ul,
+h2,
+h3 .orbitron-text {
   font-family: var(--font-orbitron);
 }
 
