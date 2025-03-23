@@ -1,8 +1,9 @@
 import Header from "../components/header";
-import BgImage from "../../public/assets/images/new-york-1867569.jpg";
-import Image from "next/image";
+
 import Carousel from "../components/carousel";
 import NewsCarousel from "../components/card";
+import Forms from "../components/forms";
+import BitcoinChart from "../components/cryptoChart";
 
 const newsItems = [
   {
@@ -35,7 +36,7 @@ const newsItems = [
 
 export default function Home() {
   return (
-    <div className="py-28 flex justify-center flex-col items-center">
+    <div className="py-28 flex justify-center flex-col items-center ">
       <Header></Header>
       <Carousel
         items={[
@@ -55,6 +56,8 @@ export default function Home() {
       ></Carousel>
 
       <NewsCarousel items={newsItems}></NewsCarousel>
+      <BitcoinChart></BitcoinChart>
+      <Forms></Forms>
     </div>
   );
 }

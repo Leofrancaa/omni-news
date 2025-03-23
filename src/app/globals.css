@@ -13,9 +13,16 @@
     --foreground: #ededed;
   }
 }
-
 :root {
   --font-orbitron: "Orbitron", sans-serif;
+}
+
+.recharts-tooltip-cursor {
+  fill: rgba(229, 231, 235, 0.1);
+}
+
+.recharts-cartesian-grid line {
+  stroke: #e5e7eb;
 }
 
 body {

@@ -34,7 +34,7 @@ const ParticlesBackground = () => {
       interactivity: {
         detectsOn: "window",
         events: {
-          onClick: { enable: true, mode: "push" },
+          onClick: { enable: false, mode: "push" },
           onHover: { enable: false, mode: "grab" },
           resize: { enable: true, delay: 0.5 },
         },
@@ -70,7 +70,7 @@ const ParticlesBackground = () => {
         },
         number: {
           density: { enable: false, width: 1920, height: 1080 },
-          value: 50,
+          value: 70,
         },
         opacity: {
           value: { min: 0.1, max: 1 },
