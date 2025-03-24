@@ -8,7 +8,7 @@ export default function Forms() {
   const [showPopup, setShowPopup] = useState(false);
 
   return (
-    <div className="lg:w-[50vw] w-[80vw] flex items-center justify-center bg-white rounded-lg shadow-2xl relative z-50">
+    <div className="lg:w-[50vw] w-[80vw] flex items-center justify-center bg-white rounded-lg shadow-2xl relative z-30">
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded shadow-md text-center">

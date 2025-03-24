@@ -35,7 +35,7 @@ export default function NewsCarousel({ items }: { items: NewsItem[] }) {
   };
 
   return (
-    <section className=" py-16 w-[90vw]">
+    <section className=" w-[90vw]">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Área Principal do Carrossel */}
         <div className="lg:col-span-2 relative h-[60vh] lg:h-[77vh] overflow-hidden">
@@ -62,6 +62,9 @@ export default function NewsCarousel({ items }: { items: NewsItem[] }) {
                   <p className="text-gray-200 mt-4 line-clamp-2">
                     {item.excerpt}
                   </p>
+                  <time className="text-xs text-gray-400 mt-auto pt-2 block">
+                    {item.timestamp}
+                  </time>
                 </div>
               </div>
             </article>
@@ -111,7 +114,7 @@ export default function NewsCarousel({ items }: { items: NewsItem[] }) {
           </div>
         </div>
 
-        <div className="hidden lg:col-span-1 lg:flex flex-col h-[80vh]">
+        <div className="hidden lg:col-span-1 lg:flex flex-col h-[80vh]np">
           <div className="flex flex-col gap-[20.5px] h-full overflow-y-auto custom-scrollbar">
             {items.map((item, index) => (
               <article

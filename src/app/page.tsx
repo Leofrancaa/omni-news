@@ -1,9 +1,8 @@
-import Header from "../components/header";
-
 import Carousel from "../components/carousel";
 import NewsCarousel from "../components/card";
 import Forms from "../components/forms";
 import BitcoinChart from "../components/cryptoChart";
+import Title from "../components/title";
 
 const newsItems = [
   {
@@ -37,7 +36,6 @@ const newsItems = [
 export default function Home() {
   return (
     <div className="py-28 flex justify-center flex-col items-center ">
-      <Header></Header>
       <Carousel
         items={[
           {
@@ -54,10 +52,15 @@ export default function Home() {
           },
         ]}
       ></Carousel>
-
-      <NewsCarousel items={newsItems}></NewsCarousel>
+      <section className="flex flex-col items-center justify-center w-full">
+        <Title title={"Recent News"}></Title>
+        <NewsCarousel items={newsItems}></NewsCarousel>
+      </section>
       <BitcoinChart></BitcoinChart>
-      <Forms></Forms>
+      <section className="flex flex-col items-center justify-center w-full">
+        <Title title={"Contact Forms"}></Title>
+        <Forms></Forms>
+      </section>
     </div>
   );
 }

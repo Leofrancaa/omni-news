@@ -151,7 +151,7 @@ const CryptoCharts: React.FC = () => {
             <Line data={bitcoinChartData} options={bitcoinOptions} />
           </div>
           {/* Gráfico do Ethereum */}
-          <div className="w-[90vw] h-[30vh] lg:w-[40vw] lg:h-[40vh] flex flex-col px-4 py-12 bg-gray-50 rounded-lg shadow-2xl justify-center items-center">
+          <div className="w-[90vw] h-[30vh] lg:w-[40vw] lg:h-[40vh] flex flex-col py-12 bg-gray-50 rounded-lg shadow-2xl justify-center items-center">
             <h3 className="text-xl font-bold mb-4 text-center">
               Preço do Ethereum (USD)
             </h3>
