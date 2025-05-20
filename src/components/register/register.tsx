@@ -29,8 +29,8 @@ export default function RegisterForm() {
   const onSubmit = async (data: FormData) => {
     try {
       setApiError("");
-      const { confirmPassword, ...userData } = data;
-      
+      const { ...userData } = data;
+
       const response = await axios.post(
         "https://news-letter-backend.vercel.app/users/register",
         userData,
@@ -47,9 +47,11 @@ export default function RegisterForm() {
       }
     } catch (error) {
       const axiosError = error as AxiosError<ApiErrorResponse>;
-      
+
       if (axiosError.response) {
-        setApiError(axiosError.response.data?.message || "Erro ao cadastrar usuário");
+        setApiError(
+          axiosError.response.data?.message || "Erro ao cadastrar usuário"
+        );
       } else if (axiosError.request) {
         setApiError("Sem resposta do servidor. Tente novamente mais tarde.");
       } else {
@@ -65,13 +67,13 @@ export default function RegisterForm() {
         className="w-[90%] p-6 bg-white flex flex-col justify-center items-center"
       >
         <h2 className="text-2xl font-bold mb-6 text-gray-800">Cadastre-se</h2>
-        
+
         {apiError && (
           <div className="mb-4 w-full p-3 bg-red-100 border-l-4 border-red-500 text-red-700">
             <p>{apiError}</p>
           </div>
         )}
-        
+
         <div className="mb-4 w-full">
           <label htmlFor="name" className="block text-gray-700 mb-2">
             Nome completo:
@@ -82,7 +84,9 @@ export default function RegisterForm() {
             {...register("name", { required: "Nome é obrigatório" })}
             className="w-full p-2 border-2 border-slate-600 rounded text-black"
           />
-          {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
+          {errors.name && (
+            <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+          )}
         </div>
 
         <div className="mb-4 w-full">
@@ -92,16 +96,18 @@ export default function RegisterForm() {
           <input
             type="email"
             id="email"
-            {...register("email", { 
+            {...register("email", {
               required: "Email é obrigatório",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Email inválido"
-              }
+                message: "Email inválido",
+              },
             })}
             className="w-full p-2 border-2 border-slate-600 rounded text-black"
           />
-          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+          )}
         </div>
 
         <div className="mb-4 w-full relative">
@@ -111,12 +117,12 @@ export default function RegisterForm() {
           <input
             type={passwordVisible ? "text" : "password"}
             id="password"
-            {...register("password", { 
+            {...register("password", {
               required: "Senha é obrigatória",
               minLength: {
                 value: 6,
-                message: "Senha deve ter pelo menos 6 caracteres"
-              }
+                message: "Senha deve ter pelo menos 6 caracteres",
+              },
             })}
             className="w-full p-2 border-2 border-slate-600 rounded text-black pr-10"
           />
@@ -127,7 +133,11 @@ export default function RegisterForm() {
           >
             {passwordVisible ? "👁️" : "👁️‍🗨️"}
           </button>
-          {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
+          {errors.password && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.password.message}
+            </p>
+          )}
         </div>
 
         <div className="mb-6 w-full">
@@ -137,15 +147,17 @@ export default function RegisterForm() {
           <input
             type="password"
             id="confirmPassword"
-            {...register("confirmPassword", { 
+            {...register("confirmPassword", {
               required: "Confirmação de senha é obrigatória",
-              validate: (value, formValues) => 
-                value === formValues.password || "As senhas não coincidem"
+              validate: (value, formValues) =>
+                value === formValues.password || "As senhas não coincidem",
             })}
             className="w-full p-2 border-2 border-slate-600 rounded text-black"
           />
           {errors.confirmPassword && (
-            <p className="text-red-500 text-sm mt-1">{errors.confirmPassword?.message}</p>
+            <p className="text-red-500 text-sm mt-1">
+              {errors.confirmPassword?.message}
+            </p>
           )}
         </div>
 
@@ -156,9 +168,12 @@ export default function RegisterForm() {
         >
           {isSubmitting ? "Cadastrando..." : "Cadastrar"}
         </button>
-        
+
         <p className="mt-4 text-gray-600">
-          Já tem uma conta? <a href="/loginPage" className="text-red-600 hover:underline">Faça login</a>
+          Já tem uma conta?{" "}
+          <a href="/loginPage" className="text-red-600 hover:underline">
+            Faça login
+          </a>
         </p>
       </form>
     </div>
